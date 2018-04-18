@@ -8,6 +8,7 @@ const express = require('express'),
             if (req.query.slider) {
                 return MainController.sliderQuery(req, res, next)
             }
+            else {console.log('Ошибка обращения к api (req.query.slider)'); return next()}
         }
         else return ViewController.homepage(req,res,next)
     });

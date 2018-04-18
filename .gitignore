@@ -67,8 +67,6 @@ config/local.js
 ################################################
 
 node_modules
-ssl
-confPass.json
 .eslintrc
 
 
