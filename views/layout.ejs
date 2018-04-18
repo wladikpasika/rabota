@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/assets/styles/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="/assets/styles/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/assets/styles/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/styles/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/styles/customStyle/adminLTE/adminLTE.css">
+  <link rel="stylesheet" href="/assets/styles/customStyle/adminLTE/all-skins.min.css">
+  <link rel="stylesheet" href="/assets/styles/customStyle/style.css">
+  <link rel="stylesheet" href="/assets/styles/fontAwesome/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+  <title>Title страницы</title>
+</head>
+<body class = "skin-blue sidebar-mini admin">
+<% include ./templates/header.ejs %>
+<div class = "container mainSection">
+  <div class = "row">
+    <div class = "col-md-12">
+        <%- body %>
+    </div>
+  </div>
+</div>
+
+    <footer>
+      <script  src="/assets/js/1-jquery/jquery-3.3.1.min.js"></script>
+      <!--<script async src="/assets/js/2-bootstrap/bootstrap.js"></script>-->
+
+      <script src="/assets/js/2-bootstrap/bootstrap.min.js"></script>
+      <% if(originalUrl.match(/\/user\/\d+$/i)){%>
+      <!--подгружаем только на странице пользователя-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+      <script src="/assets/js/vue-render-table.js"></script>
+        <%}%>
+    </footer>
+</body>
+</html>

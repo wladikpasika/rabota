@@ -1,0 +1,44 @@
+<header class="main-header">
+    <a href="<%= !user?'/':`/user/${user.id}`%>" class="logo">
+        <span class="logo-mini"></span>
+        <span class="logo-lg">
+            <b><%= !user?'Авторизироваться':'Список книг'%></b>
+        </span>
+    </a>
+    <nav class="navbar navbar-static-top">
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <%if(user){%>
+                <%}%>
+                <li>
+                    <%if(!user){%><a a href = "/registration">Зарегистрироваться</a><%}
+                    else {%>
+                    <a a href = "/book/create">Добавить книгу</a>
+                    <%}%>
+                </li>
+                <%if(user){%>
+                <li class="exit">
+                    <a href="/logout">
+                        Выход <span class="exit-icon"></span>
+                    </a>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+    </nav>
+    <%if(error) {
+    error.forEach(err =>{%>
+    <div class="alert alert-danger">
+        <%= err.msg %>
+    </div>
+    <%})}%>
+    <% if(success_msg) {
+    success_msg.forEach(msg =>{ %>
+    <div class="alert alert-success">
+        <%= msg %>
+    </div>
+    <%})} %>
+    <div class="alert alert-danger" id="VueDanger" style="display:none"></div>
+    <div class="alert alert-success" id="VueSuccess" style="display:none"></div>
+</header>

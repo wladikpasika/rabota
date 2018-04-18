@@ -1,0 +1,16 @@
+<div class="contacts">
+    <div class="phones" v-if ="$store.state.contacts.length>0">
+        <a :href="`tel:${$store.state.contacts[0].phones}`">{{$store.state.contacts[0].phones}}</a>
+        <span class = "phonesOnSlider">
+            <span :class="dropListIcon" @click="dropList"></span>
+        </span>
+        <ul class = "droplistOnSlider" v-show = 'flag'>
+            <span v-for = "(item, index) in $store.state.contacts">
+                <li v-if = "index>0">{{item.phones}}</li>
+            </span>
+        </ul>
+    </div>
+    <a class="vk" href="https://vk.com/club135611001">
+        <span>В</span>
+    </a>
+</div>

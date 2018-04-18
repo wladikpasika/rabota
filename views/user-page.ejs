@@ -1,0 +1,29 @@
+<% layout('./layout') %>
+
+<% if(books){ %>
+<div class="container">
+    <div class = "row">
+        <h3>Регистр</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Автор</th>
+                    <th>Год</th>
+                    <th>Удалить</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+
+
+                <tr v-for="(book, key) in books">
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.year}}</td>
+                    <td><a :href = "'/book/delete/'+book.id" @click = "remove($event)">Удалить</a>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
+<%}%>
