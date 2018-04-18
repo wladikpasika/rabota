@@ -13,10 +13,10 @@ const express = require('express'),
         else return ViewController.homepage(req,res,next)
     });
     router.post('/login',(req,res,next)=>{
-    return MainController.login(req,res,next)
+        return MainController.login(req,res,next)
     });
     router.get('/login',(req,res,next)=>{
-        return ViewController.homepage(req,res,next);
+        return ViewController.loginPage(req,res,next);
     });
     router.get('/logout',(req,res,next)=>{
     return MainController.logout(req,res,next)

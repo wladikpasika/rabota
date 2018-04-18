@@ -1,15 +1,15 @@
 const routes = require('./routes');
 
 module.exports = function(req, res, next) {
-    console.log(req.originalUrl);
-    if(   req.originalUrl==='/'
-          ||req.originalUrl==='/registration'
+    if(
+          req.originalUrl==='/registration'
           ||req.originalUrl==='/login'
-          ||req.isAuthenticated()
           ||req.method === "POST"
           ||req.originalUrl.search(/utm_/i)!==-1/*это ссылки с параметрами от контекста*/
           ||req.query.gclid/*Это ссылки с параметрами от медийной рекламы*/
           ||req.query.slider
+          ||req.originalUrl==='/'
+          ||req.isAuthenticated()
     )
     {
         return routes(req, res, next)

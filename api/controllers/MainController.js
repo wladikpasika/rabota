@@ -76,7 +76,8 @@ module.exports = {
                     if (err) {
                         return res.redirect('/login');//next(err)
                     }
-                    else{res.redirect(`/user/${user.id}`)
+                    else{
+                        res.redirect(`/user/${user.id}`)
                     }
                 });
             })(req, res, next);
