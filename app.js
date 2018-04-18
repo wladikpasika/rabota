@@ -1,7 +1,7 @@
 const express = require('express'),
     https = require('https'),
     app = express(),
-    port = 8082,
+    port = 80,
     portSsl = 443,
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
@@ -28,13 +28,13 @@ app.listen(port, function(){
 });
 https.createServer(httpOptions, app).listen(portSsl);
 //вешаем протокол
-/*app.use((req,res,next)=>{
+app.use((req,res,next)=>{
     if(req.protocol ==='http'){
         if(req.url.length>1) {return  res.redirect(301, 'https://'+req.hostname + req.url);}
         else {return  res.redirect(301, 'https://'+req.hostname);}
     }
     return next()
-});*/
+});
 //парсим тело запроса
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({extended: true})); // to support URL-encoded bodies
