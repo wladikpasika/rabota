@@ -8,12 +8,13 @@ export default {
         let get;
 
         if(window.location.port==='8082'||window.location.port===''){
-            get = '/?slider=main_slider';
+            get = '?slider=main_slider';
         }
         else {
             get = '/assets/db/firstslider.json';
         }
         Vue.http.get(get).then((response) => {
+            console.log('запрос');
             context.commit('SET_MAIN_SLIDERS', response.data)
         }).then(()=>{context.commit('SET_MAIN_SLIDERS_DOWNLOAD', false)});
     },
@@ -24,7 +25,7 @@ export default {
 
         if(window.location.port==='8082'||window.location.port===''){
 
-            get = '/?slider=nav';
+            get = '?slider=nav';
 
         }
         else {
@@ -40,7 +41,7 @@ export default {
 
         if(window.location.port==='8082'||window.location.port===''){
 
-            get = '/?slider=reviews';
+            get = '?slider=reviews';
 
         }
         else {
@@ -56,7 +57,7 @@ export default {
 
         if(window.location.port==='8082'||window.location.port===''){
 
-            get = '/?slider=about';
+            get = '?slider=about';
 
         }
         else {
@@ -74,7 +75,7 @@ export default {
 
         if(window.location.port==='8082'||window.location.port===''){
 
-            get = '/?slider=clients_block';
+            get = '?slider=clients_block';
 
         }
         else {
@@ -93,7 +94,7 @@ export default {
 
         if(window.location.port==='8082'||window.location.port===''){
 
-            get = '/?slider=block_services';
+            get = '?slider=block_services';
         }
         else {
             get = '/assets/db/services-slider.json';
@@ -144,7 +145,7 @@ export default {
 
         if(window.location.port==='8082'||window.location.port===''){
 
-            get = '/?slider=contacts';
+            get = '?slider=contacts';
 
         }
         else {

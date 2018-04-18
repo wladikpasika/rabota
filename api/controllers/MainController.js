@@ -142,7 +142,7 @@ module.exports = {
                     return next()});
                 break;
             case 'clients_block':
-                clients().then(result => {return res.send(result)}).catch(err => {
+                clients().then(result => {console.log(result); return res.send(result)}).catch(err => {
                     return next()});
                 break;
             case 'about':

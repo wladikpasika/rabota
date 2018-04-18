@@ -1,7 +1,7 @@
 const express = require('express'),
     https = require('https'),
     app = express(),
-    port = 80,
+    port = 8082,
     portSsl = 443,
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
@@ -24,17 +24,17 @@ app.engine('ejs', ejsLocals);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.listen(port, function(){
-    console.log('Listening on port 80, 443!');
+    console.log(`Listening on port ${port}, 443!`);
 });
 https.createServer(httpOptions, app).listen(portSsl);
 //вешаем протокол
-app.use((req,res,next)=>{
+/*app.use((req,res,next)=>{
     if(req.protocol ==='http'){
         if(req.url.length>1) {return  res.redirect(301, 'https://'+req.hostname + req.url);}
         else {return  res.redirect(301, 'https://'+req.hostname);}
     }
     return next()
-});
+});*/
 //парсим тело запроса
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({extended: true})); // to support URL-encoded bodies
@@ -79,6 +79,5 @@ app.use(function (req, res, next) {
 app.use('/assets', express.static(__dirname + '/assets'));
 //все остальное на роуты
 app.use('/', policies);
-/*app.listen(port, function(){
-    console.log('Listening on port 80, 443!');
-});*/
+
+

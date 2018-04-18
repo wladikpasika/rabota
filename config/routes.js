@@ -9,7 +9,7 @@ const express = require('express'),
                 return MainController.sliderQuery(req, res, next)
             }
         }
-        return ViewController.homepage(req,res,next)
+        else return ViewController.homepage(req,res,next)
     });
     router.post('/login',(req,res,next)=>{
     return MainController.login(req,res,next)
